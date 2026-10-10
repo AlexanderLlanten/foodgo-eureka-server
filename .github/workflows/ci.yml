@@ -1,0 +1,23 @@
+name: CI Eureka
+on:
+  push:
+    branches: [main, develop, "feature/**"]
+  pull_request:
+    branches: [main, develop]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: temurin
+          cache: maven
+      - name: Maven y pruebas HTTP del registro
+        run: mvn -B verify
+      - uses: actions/upload-artifact@v4
+        with:
+          name: foodgo-eureka-jar
+          path: target/*.jar
+          if-no-files-found: error
