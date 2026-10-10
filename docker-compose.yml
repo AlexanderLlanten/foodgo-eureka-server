@@ -1,0 +1,11 @@
+name: foodgo-eureka
+services:
+  eureka:
+    build: .
+    image: foodgo/eureka-server:ep02
+    environment:
+      PORT: "8761"
+      JAVA_TOOL_OPTIONS: "-Xms64m -Xmx384m"
+    ports:
+      - "127.0.0.1:8761:8761"
+    stop_grace_period: 30s
