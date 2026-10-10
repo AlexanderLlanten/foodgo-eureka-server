@@ -7,7 +7,7 @@ Registro de los ocho microservicios FoodGo para la demostración desde VS Code. 
 Requisitos: Java 21 y Maven 3.9+.
 
 ```powershell
-git clone https://github.com/jhoramirez-afk/foodgo-eureka-server.git
+git clone https://github.com/AlexanderLlanten/foodgo-eureka-server.git
 Set-Location foodgo-eureka-server
 mvn clean
 mvn install
