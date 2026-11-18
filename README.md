@@ -25,3 +25,11 @@ Eureka guarda el catálogo en memoria y recibe heartbeats. No almacena usuarios,
 Docker opcional: docker compose up --build -d --wait --wait-timeout 300.
 
 Referencias: [Spring Cloud Netflix](https://docs.spring.io/spring-cloud-netflix/docs/4.1.6/reference/html/), [compatibilidad](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions).
+
+## EP03: AWS Academy y Docker Swarm
+
+Las imágenes base del Dockerfile están fijadas por digest. El build ejecuta Maven y pruebas antes de empaquetar la imagen Java 21.
+
+El servidor se ejecuta en el overlay privado del cluster y mantiene el registro de los ocho clientes. El dashboard no se expone como ruta administrativa pública.
+
+El CI de este repositorio valida el proyecto en cada cambio. El CD central de [foodgo-arquitectura](https://github.com/jhoramirez-afk/foodgo-arquitectura/blob/main/docs/EP03-Despliegue-AWS.md) fija los SHA de los nueve proyectos, construye imágenes en ECR, aprovisiona AWS con CloudFormation y despliega mediante SSM. Ejecutar ese pipeline para publicar una nueva versión del conjunto; no hay despliegue cloud automático desde este repositorio.
